@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ScoreResult</string>
+
+    <string name="score_synthetical">综合得分</string>
+    <string name="score_synthetical_unit">分</string>
+    <string name="score_average">全国平均</string>
+    <string name="score_tone">音调</string>
+    <string name="score_accuracy">正确率</string>
+    <string name="score_stability">稳定性</string>
+    <string name="score_stability_left">低</string>
+    <string name="score_stability_right">高</string>
+    <string name="score_rhythm">节奏</string>
+    <string name="score_rhythm_left">快</string>
+    <string name="score_rhythm_right">慢</string>
+    <string name="score_longsound">长音</string>
+    <string name="score_trill">颤音</string>
+    <string name="score_trill_left">低</string>
+    <string name="score_trill_right">低</string>
+    <string name="score_expression">表现力</string>
+
+    <string name="format_nationaverage">全国平均：%1$s分（%2$s）</string>
+    <string name="format_score">%.3f</string>
+    <string name="format_longsound">合计：%1$s秒/%2$s回</string>
+
+</resources>

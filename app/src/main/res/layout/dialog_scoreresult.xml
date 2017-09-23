@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_scoreresult_black"
+        android:orientation="vertical">
+
+        <!--上-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="420dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/bg_scoreresult_up" />
+
+            <!--综合得分-->
+            <com.rain.scoreresult.scoreresult.view.TextView_Synthetical
+                android:id="@+id/tv_synthetical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="@string/score_synthetical"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <com.rain.scoreresult.scoreresult.view.TextView_Scores
+                android:id="@+id/tv_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_synthetical"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+            <ProgressBar
+                android:id="@+id/progress_red"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_below="@id/tv_score"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-5dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/layer_progress_score_red" />
+
+            <ProgressBar
+                android:id="@+id/progress_blue"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_below="@id/progress_red"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:max="100"
+                android:progress="0"
+                android:progressDrawable="@drawable/layer_progress_score_blue" />
+
+            <TextView
+                android:id="@+id/tv_average"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progress_blue"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/format_nationaverage"
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <com.rain.scoreresult.scoreresult.view.RadarChart
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_average"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <!--中-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/bg_scoreresult_mid" />
+
+            <com.rain.scoreresult.scoreresult.view.TextView_Border
+                android:id="@+id/tv_tone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/score_tone"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:borderColor="#ee2812a9"
+                app:borderWidth="3dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_below="@id/tv_tone"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/tv_accuracy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/score_accuracy"
+                    android:textColor="#fff33a"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_accuracy_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_toEndOf="@id/tv_accuracy"
+                    android:textColor="#ffffff"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    tools:text="89" />
+
+                <TextView
+                    android:id="@+id/tv_accuracy_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tv_accuracy_value"
+                    android:layout_marginBottom="4dp"
+                    android:layout_toEndOf="@id/tv_accuracy_value"
+                    android:text="%"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp" />
+
+                <com.rain.scoreresult.scoreresult.view.ScoreView_Tone
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_toEndOf="@id/tv_accuracy_unit" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!--下-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+            <!--左-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <!--左上-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/bg_scoreresult_down_left1" />
+
+                    <com.rain.scoreresult.scoreresult.view.TextView_Border
+                        android:id="@+id/tv_rhythm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/score_rhythm"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:borderColor="#ee2812a9"
+                        app:borderWidth="3dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:gravity="center_vertical"
+                        android:layout_below="@id/tv_rhythm"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginStart="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/score_rhythm_left"
+                            android:textColor="#fff33a"
+                            android:textSize="14sp" />
+
+                        <com.rain.scoreresult.scoreresult.view.ScoreView_Rhythm
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/score_rhythm_right"
+                            android:textColor="#fff33a"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!--左下-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/bg_scoreresult_down_left2" />
+
+                    <com.rain.scoreresult.scoreresult.view.TextView_Border
+                        android:id="@+id/tv_stability"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/score_stability"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:borderColor="#ee2812a9"
+                        app:borderWidth="3dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:gravity="center_vertical"
+                        android:layout_below="@id/tv_stability"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginStart="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/score_stability_left"
+                            android:textColor="#fff33a"
+                            android:textSize="14sp" />
+
+                        <com.rain.scoreresult.scoreresult.view.ScoreView_Stability
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/score_stability_right"
+                            android:textColor="#fff33a"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--右-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <!--右上-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="2dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/bg_scoreresult_down_right1" />
+
+                    <com.rain.scoreresult.scoreresult.view.TextView_Border
+                        android:id="@+id/tv_trill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/score_trill"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:borderColor="#ee2812a9"
+                        app:borderWidth="3dp" />
+
+                    <RatingBar
+                        android:layout_below="@id/tv_trill"
+                        style="@style/RatingBar_Score"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6dp"
+                        android:numStars="5"
+                        android:rating="1.5"
+                        android:stepSize="0.5"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <!--右下-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/bg_scoreresult_down_right2" />
+
+                    <com.rain.scoreresult.scoreresult.view.TextView_Border
+                        android:id="@+id/tv_longsound"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/score_longsound"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:borderColor="#ee2812a9"
+                        app:borderWidth="3dp" />
+
+                    <RatingBar
+                        android:layout_below="@id/tv_longsound"
+                        style="@style/RatingBar_Score"
+                        android:id="@+id/rbar_longsound"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6dp"
+                        android:numStars="5"
+                        android:rating="1.5"
+                        android:stepSize="0.5"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_below="@id/rbar_longsound"
+                        android:layout_width="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6dp"
+                        android:textColor="#fff33a"
+                        android:text="@string/format_longsound"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
